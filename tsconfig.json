@@ -57,7 +57,7 @@
   "exclude": [
     "lib",
     "node_modules",
-    "__tests__",
+    "tests",
     "__mocks__"
   ]
 }
