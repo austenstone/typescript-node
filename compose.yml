@@ -1,0 +1,23 @@
+services:
+  webhook:
+    build: .
+    restart: always
+    ports:
+      - "3000:3000"
+    links:
+      - "mongo:database"
+    environment:
+      - MONGODB_URI=mongodb://mongo:27017
+  mongo:
+    image: mongo
+    restart: always
+    command: ["--replSet", "rs0", "--bind_ip_all"]
+    ports:
+      - 27017:27017
+    volumes:
+      - "mongo_data:/data/db"
+      - "mongo_config:/data/configdb"
+
+volumes:
+  mongo_data:
+  mongo_config:
