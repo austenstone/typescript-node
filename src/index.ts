@@ -1,10 +1,12 @@
 import 'dotenv/config'
 
-console.log('hi');
+console.log('Hello World!');
 
 // async await test top level
-await new Promise((resolve) => {
+const result = await new Promise((resolve) => {
   setTimeout(() => {
     resolve('done');
   }, 1000);
 });
+
+console.log(result);
